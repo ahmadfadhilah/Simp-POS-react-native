@@ -1,3 +1,5 @@
+///////////////////////////////// harus memakai library dayjs, instalasi yarn add dayjs
+
 import React, {Component} from 'react';
 import {StatusBar, StyleSheet, Dimensions, View, Animated} from 'react-native';
 import dayjs from 'dayjs';
@@ -155,14 +157,14 @@ const styles = StyleSheet.create({
     width: SIZE * 0.8,
     height: SIZE * 0.8,
     borderRadius: SIZE * 0.4,
-    backgroundColor: '#68EEEE',
+    backgroundColor: '#a5a58d',
     position: 'absolute',
   },
   mediumQuadran: {
     width: SIZE * 0.5,
     height: SIZE * 0.5,
     borderRadius: SIZE * 0.25,
-    backgroundColor: '#38CDCD',
+    backgroundColor: '#b7b7a4',
     position: 'absolute',
   },
   smallQuadran: {
