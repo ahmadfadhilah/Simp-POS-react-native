@@ -27,6 +27,7 @@ const images = [
   'https://images.unsplash.com/photo-1548614606-52b4451f994b?w=800&q=80',
   'https://images.unsplash.com/photo-1548600916-dc8492f8e845?w=800&q=80',
 ];
+
 const data = images.map((image, index) => ({
   key: String(index),
   photo: image,
