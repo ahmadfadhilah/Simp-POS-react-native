@@ -150,7 +150,7 @@ export default function App() {
       toValue: toValue === 1 ? toCoords : fromCoords,
       useNativeDriver: true,
       bounciness: 2,
-      speed: 5,
+      speed: 10,
     });
   };
   const opacity = animation.x.interpolate({
