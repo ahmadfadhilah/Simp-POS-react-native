@@ -1,17 +1,14 @@
-///////////////////// JUDUL Advanced React Native Parallax Carousel with FlatList and Animated API
 import * as React from 'react';
 import {
   Animated,
   Dimensions,
   Image,
-  FlatList,
-  Text,
   View,
   StyleSheet,
   StatusBar,
 } from 'react-native';
 
-const {width, height} = Dimensions.get('screen');
+const {width} = Dimensions.get('screen');
 const ITEM_WIDTH = width * 0.76;
 const ITEM_HEIGHT = ITEM_WIDTH * 1.47;
 

@@ -15,6 +15,23 @@ export const colors = {
 };
 
 export const styles = StyleSheet.create({
+  flex: {
+    flex: 1
+  },
+  center: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  container: {
+    padding: 16
+  },
+  marginVS: {
+    marginVertical: 8,
+  },
+  textH3: {
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
   button: {
     borderRadius: 8,
     paddingVertical: 16,

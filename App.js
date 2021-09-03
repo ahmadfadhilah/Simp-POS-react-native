@@ -1,9 +1,9 @@
 import React from 'react';
 import AppRouter from './src/routers/AppRouter';
-import Animatedclock from './src/components/Animated-clock';
+import NoConnections from './src/screens/NoConnections';
 
 const App = () => {
-  return <Animatedclock/>;
+  return <NoConnections/>;
 };
 
 export default App;

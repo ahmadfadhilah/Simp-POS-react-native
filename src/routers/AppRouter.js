@@ -6,7 +6,6 @@ import {
   LoginScreen,
   RegisterScreen,
   SplashScreen,
-  ResetScreen,
   VerifyScreen,
   CashierDashboardScreen,
   CartScreen,
@@ -19,12 +18,6 @@ import {
   AllicationScreen,
   DailyReportScreen,
   ItemListScreen,
-  MemberDashboardScreen,
-  StaffDashboardScreen,
-  CategoryScreen,
-  ItemScreen,
-  PurchaScreen,
-  SupplierScreen,
   SettingScreen,
   UpdateProfile,
   NoConnections,
@@ -72,68 +65,49 @@ const AppRouter = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator 
+      <Stack.Navigator
         headerMode={false}
         screenOptions={{animationEnabled: false}}>
         <>
-            <Stack.Screen name="Login" component={LoginScreen}/>
-            <Stack.Screen name="Register" component={RegisterScreen}/>
-            <Stack.Screen name="Forgot" component={ForgotScreen}/>
-            <Stack.Screen name="Reset" component={ResetScreen}/>
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen name="Forgot" component={ForgotScreen} />
         </>
 
         <>
-            <Stack.Screen name="VerifyEmail" component={VerifyScreen} />
+          <Stack.Screen name="VerifyEmail" component={VerifyScreen} />
 
-            <>
-                <Stack.Screen 
-                    name="MemberDashboard"
-                    component={MemberDashboardScreen}
-                />
-            </>
+          <>
+            <Stack.Screen
+              name="CashierDashboard"
+              component={CashierDashboardScreen}
+            />
+            <Stack.Screen name="Cart" component={CartScreen} />
+            <Stack.Screen
+              name="HistorySelling"
+              component={HistorySellingScreen}
+            />
+            <Stack.Screen name="MemberList" component={MemberListScreen} />
+            <Stack.Screen name="TopUp" component={TopUpScreen} />
+            <Stack.Screen name="Invoice" component={InvoiceScreen} />
+          </>
 
-            <>
-                <Stack.Screen 
-                    name="CashierDashboard"
-                    component={CashierDashboardScreen}
-                />
-                <Stack.Screen name="Cart" component={CartScreen}/>
-                <Stack.Screen 
-                  name="HistorySelling"
-                  component={HistorySellingScreen}
-                />
-                <Stack.Screen name="MemberList" component={MemberListScreen}/>
-                <Stack.Screen name="TopUp" component={TopUpScreen}/>
-                <Stack.Screen name="Invoice" component={InvoiceScreen}/>
-            </>
+          <>
+            <Stack.Screen
+              name="ManagerDashboard"
+              component={ManagerDashboardScreen}
+            />
+            <Stack.Screen name="Allication" component={AllicationScreen} />
+            <Stack.Screen name="DailyReport" component={DailyReportScreen} />
+            <Stack.Screen name="AbsentReport" component={AbsentReportScreen} />
+            <Stack.Screen name="ItemList" component={ItemListScreen} />
+          </>
 
-            <>
-                <Stack.Screen 
-                  name="StaffDashboard"
-                  component={StaffDashboardScreen}
-                />
-                <Stack.Screen name="Category" component={CategoryScreen} />
-                <Stack.Screen name="Supplier" component={SupplierScreen} />
-                <Stack.Screen name="Item" component={ItemScreen} />
-                <Stack.Screen name="Purchase" component={PurchaScreen} />
-            </>
-
-            <>
-                <Stack.Screen 
-                  name="ManagerDashboard"
-                  component={ManagerDashboardScreen}
-                />
-                <Stack.Screen name="Allication" component={AllicationScreen}/>
-                <Stack.Screen name="DailyReport" component={DailyReportScreen}/>
-                <Stack.Screen name="AbsentReport" component={AbsentReportScreen}/>
-                <Stack.Screen name="ItemList" component={ItemListScreen}/>
-            </>
-
-            <Stack.Screen name="UpdateProfile" component={UpdateProfile}/>
-            <Stack.Screen name="Setting" component={SettingScreen}/>
+          <Stack.Screen name="UpdateProfile" component={UpdateProfile} />
+          <Stack.Screen name="Setting" component={SettingScreen} />
         </>
 
-        <Stack.Screen name="NoConnections" component={NoConnections}/>
+        <Stack.Screen name="NoConnections" component={NoConnections} />
       </Stack.Navigator>
     </NavigationContainer>
   );
