@@ -14,9 +14,10 @@ export const colors = {
   opacity: '#1f1f1f99',
 };
 
-export const styles = StyleSheet.create({
+export const s = StyleSheet.create({
   flex: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'blue'
   },
   center: {
     alignItems: 'center',
@@ -24,6 +25,10 @@ export const styles = StyleSheet.create({
   },
   container: {
     padding: 16
+  },
+  container1: {
+    paddingBottom: 20,
+    
   },
   marginVS: {
     marginVertical: 8,
@@ -36,7 +41,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     paddingVertical: 16,
     alignItems: 'center',
-    elevation: 5,
+    elevation: 4,
   },
   backgroundLight: {
     backgroundColor: colors.lightBg,
@@ -55,7 +60,7 @@ export const styles = StyleSheet.create({
   },
   textMedium: {
     fontWeight: '700',
-    fontSize: 15,
+    fontSize: 17,
   },
   textUppercase: {textTransform: 'uppercase'},
   textCenter: {
@@ -64,4 +69,5 @@ export const styles = StyleSheet.create({
   textWhite: {
     color: colors.white,
   },
+  lottieButton: {width: 19, height: 19},
 });

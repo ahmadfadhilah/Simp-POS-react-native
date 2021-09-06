@@ -22,7 +22,7 @@ import {
   UpdateProfile,
   NoConnections,
 } from '../screens';
-import {styles} from '../styles/MainStyles';
+import {s} from '../styles/MainStyles';
 // import {useDispatch, useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
@@ -59,9 +59,9 @@ const AppRouter = () => {
   //   }, 3000);
   // }, []);
 
-  if (splash) {
-    return <SplashScreen />;
-  }
+  // if (splash) {
+  //   return <SplashScreen />;
+  // }
 
   return (
     <NavigationContainer>

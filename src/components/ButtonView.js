@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableNativeFeedback} from 'react-native';
-import tw from 'tailwind-react-native-classnames';
-import {styles} from '../styles/MainStyles';
+import {s} from '../styles/MainStyles';
 import LottieView from 'lottie-react-native';
 
 const ButtonView = ({onPress, loading, title, dark, disabled}) => {
@@ -11,23 +10,23 @@ const ButtonView = ({onPress, loading, title, dark, disabled}) => {
         onPress={() => (onPress ? onPress() : null)}>
         <View
           style={[
-            styles.button,
-            dark ? styles.backgroundPrimary : styles.backgroundSecondary,
+            s.button,
+            dark ? s.backgroundPrimary : s.backgroundSecondary,
           ]}>
           {loading ? (
             <LottieView
               source={require('../assets/lottie/8308-loading.json')}
               autoPlay
               loop
-              style={styles.lottieButton}
+              style={s.lottieButton}
             />
           ) : (
             <Text
               style={[
-                styles.textMedium,
-                styles.textUppercase,
-                styles.textCenter,
-                styles.textWhite,
+                s.textMedium,
+                s.textUppercase,
+                s.textCenter,
+                s.textWhite,
               ]}>
               {title}
             </Text>

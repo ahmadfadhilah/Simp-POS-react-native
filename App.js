@@ -1,9 +1,8 @@
 import React from 'react';
 import AppRouter from './src/routers/AppRouter';
-import NoConnections from './src/screens/NoConnections';
 
 const App = () => {
-  return <NoConnections/>;
+  return <AppRouter/>;
 };
 
 export default App;

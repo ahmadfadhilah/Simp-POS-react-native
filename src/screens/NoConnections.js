@@ -1,8 +1,7 @@
 import React from 'react';
-import {View, Text, StatusBar} from 'react-native';
+import {View, Text, StatusBar, TouchableOpacity} from 'react-native';
 import LottieView from 'lottie-react-native';
 import {styles} from '../styles/MainStyles';
-import {TouchableOpacity} from 'react-native';
 
 const NoConnections = () => {
   return (
@@ -15,8 +14,12 @@ const NoConnections = () => {
           loop
         />
       </View>
-      <TouchableOpacity style={[styles.center, styles.container]} >
-        <Text style={[styles.marginVS, styles.textMedium]}>Kesalahan Jaringan</Text>
+      <View style={styles.center}>
+        <Text style={[styles.marginVS, styles.textMedium]}>
+          Kesalahan Jaringan
+        </Text>
+      </View>
+      <TouchableOpacity style={[styles.center, styles.container1]}>
         <Text style={styles.textH3}>Coba lagi ?</Text>
       </TouchableOpacity>
     </>
