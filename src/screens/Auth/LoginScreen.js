@@ -6,14 +6,42 @@ import {
   TouchableOpacity,
   Switch,
   StyleSheet,
+  ToastAndroid,
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import TextView from '../../components/TextView';
 import ButtonView from '../../components/ButtonView';
+import {useDispatch} from 'react-redux';
+import {loginServices} from '../../services/endpoint/auth'
+import { changeToken, setUser } from '../../redux/action';
 
 const LoginScreen = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [secure, setSecure] = useState(true);
   const [isEnabled, setisEnabled] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch
+
+  const onClickLogin = async () => {
+    if (email === '' || password === '') {
+      ToastAndroid.show('Harap isi dengan benar', ToastAndroid.LONG);
+    } else {
+      setLoading(true);
+      try {
+        const {data} = await loginServices(email, password ? 1 : 0);
+        setLoading(false);
+        if (data === '') {
+          dispatch(setUser(data.data.user));
+          dispatch(changeToken(data.data.token));
+        }
+      } catch (error) {
+        setLoading(false);
+        ToastAndroid.show(error, ToastAndroid.LONG);
+      }
+    }
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -56,6 +84,8 @@ const LoginScreen = () => {
           <ButtonView 
             title="Login"
             dark
+            loading={loading}
+            onPress={onClickLogin}
           />
         </View>
       </View>

@@ -1,8 +1,6 @@
 import ForgotScreen from './Auth/ForgotScreen';
 import LoginScreen from './Auth/LoginScreen';
-import RegisterScreen from './Auth/RegisterScreen';
 import SplashScreen from './Auth/SplashScreen';
-import VerifyScreen from './Auth/VerifyScreen';
 import CashierDashboardScreen from './Cashier/CashierDashboardScreen';
 import CartScreen from './Cashier/CartScreen';
 import HistorySellingScreen from './Cashier/HistorySellingScreen';
@@ -21,9 +19,7 @@ import NoConnections from './NoConnections';
 export {
     ForgotScreen,
     LoginScreen,
-    RegisterScreen,
     SplashScreen,
-    VerifyScreen,
     CashierDashboardScreen,
     CartScreen,
     HistorySellingScreen,

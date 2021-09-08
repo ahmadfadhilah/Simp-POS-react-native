@@ -4,9 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {
   ForgotScreen,
   LoginScreen,
-  RegisterScreen,
   SplashScreen,
-  VerifyScreen,
   CashierDashboardScreen,
   CartScreen,
   HistorySellingScreen,
@@ -59,9 +57,9 @@ const AppRouter = () => {
   //   }, 3000);
   // }, []);
 
-  // if (splash) {
-  //   return <SplashScreen />;
-  // }
+  if (splash) {
+    return <SplashScreen />;
+  }
 
   return (
     <NavigationContainer>
@@ -70,12 +68,10 @@ const AppRouter = () => {
         screenOptions={{animationEnabled: false}}>
         <>
           <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="Forgot" component={ForgotScreen} />
         </>
 
         <>
-          <Stack.Screen name="VerifyEmail" component={VerifyScreen} />
 
           <>
             <Stack.Screen

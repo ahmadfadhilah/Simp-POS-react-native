@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '../../redux/store';
 
-const HOST = '';
+const HOST = 'https://sistempointofsales.herokuapp.com';
 
 const apiPublic = axios.create({
   baseURL: HOST + '/api/',
