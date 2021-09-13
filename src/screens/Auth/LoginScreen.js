@@ -7,6 +7,7 @@ import {
   Switch,
   StyleSheet,
   ToastAndroid,
+  StatusBar,
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import TextView from '../../components/TextView';
@@ -42,12 +43,13 @@ const LoginScreen = () => {
       }
     }
   }
+
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar translucent backgroundColor="transparent"/>
       <View>
         <TouchableOpacity style={styles.backButton}>
-          <MaterialIcons name="keyboard-arrow-left" size={25} color="gray" />
-          <Text style={styles.backText}>Back</Text>
+          <Text style={styles.largeText}>Login</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.bodyContent}>
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
   largeText: {
     fontWeight: 'bold',
     fontSize: 20,
-    lineHeight: 32,
+    // lineHeight: 32,
     marginBottom: 10,
   },
   smallText: {

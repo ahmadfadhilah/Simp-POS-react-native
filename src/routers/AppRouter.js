@@ -21,7 +21,7 @@ import {
   NoConnections,
 } from '../screens';
 import {s} from '../styles/MainStyles';
-// import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
 
@@ -66,44 +66,7 @@ const AppRouter = () => {
       <Stack.Navigator
         headerMode={false}
         screenOptions={{animationEnabled: false}}>
-        <>
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Forgot" component={ForgotScreen} />
-        </>
-
-        <>
-
-          <>
-            <Stack.Screen
-              name="CashierDashboard"
-              component={CashierDashboardScreen}
-            />
-            <Stack.Screen name="Cart" component={CartScreen} />
-            <Stack.Screen
-              name="HistorySelling"
-              component={HistorySellingScreen}
-            />
-            <Stack.Screen name="MemberList" component={MemberListScreen} />
-            <Stack.Screen name="TopUp" component={TopUpScreen} />
-            <Stack.Screen name="Invoice" component={InvoiceScreen} />
-          </>
-
-          <>
-            <Stack.Screen
-              name="ManagerDashboard"
-              component={ManagerDashboardScreen}
-            />
-            <Stack.Screen name="Allication" component={AllicationScreen} />
-            <Stack.Screen name="DailyReport" component={DailyReportScreen} />
-            <Stack.Screen name="AbsentReport" component={AbsentReportScreen} />
-            <Stack.Screen name="ItemList" component={ItemListScreen} />
-          </>
-
-          <Stack.Screen name="UpdateProfile" component={UpdateProfile} />
-          <Stack.Screen name="Setting" component={SettingScreen} />
-        </>
-
-        <Stack.Screen name="NoConnections" component={NoConnections} />
+        {}
       </Stack.Navigator>
     </NavigationContainer>
   );

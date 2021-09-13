@@ -9,7 +9,7 @@ export default function App() {
   return (
     <View style={s.container}>
       <StatusBar hidden />
-      <Text style={s.text}>Simp</Text>
+      {/* <Text style={s.text}>simp</Text> */}
       <TextAnimator
         content="System management Point of cell️️️"
         textStyle={s.textStyle}
