@@ -14,4 +14,3 @@ export const loginServices = (email, password) => {
     password,
   });
 };
-

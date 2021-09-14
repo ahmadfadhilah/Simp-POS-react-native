@@ -24,4 +24,4 @@ const apiPrivate = () => {
   });
 };
 
-export {apiPublic, getReduxToken, apiPrivate};
+export {apiPublic, getReduxToken, HOST, apiPrivate};

@@ -22,40 +22,43 @@ import {
 } from '../screens';
 import {s} from '../styles/MainStyles';
 import {useDispatch, useSelector} from 'react-redux';
+import {getProfileServices} from '../services/endpoint/user';
+import {getToken} from '../services/token/Token';
+import { changeToken } from '../redux/action';
 
 const Stack = createStackNavigator();
 
 const AppRouter = () => {
   const [splash, setSplash] = useState(true);
-  // const {token, user} = useSelector(state => state);
-  // const [error, setError] = useState('');
-  // const dispatch = useDispatch();
+  const {token, user} = useSelector(state => state);
+  const [error, setError] = useState('');
+  const dispatch = useDispatch();
 
-  // const getStoredToken = async () => {
-  //   try {
-  //     const storedToken = await getToken();
-  //     if (storedToken) {
-  //       dispatch(changeToken(storedToken));
-  //       getProfileServices(
-  //         () => setSplash(false),
-  //         e => setError(e.message),
-  //       );
-  //     } else {
-  //       setSplash(false);
-  //       setError('Gagal');
-  //     }
-  //   } catch (err) {
-  //     setError(err.message);
-  //     setSplash(false);
-  //     console.log(err);
-  //   }
-  // };
+  const getStoredToken = async () => {
+    try {
+      const storedToken = await getToken();
+      if (storedToken) {
+        dispatch(changeToken(storedToken));
+        getProfileServices(
+          () => setSplash(false),
+          e => setError(e.msg),
+        );
+      } else {
+        setSplash(false);
+        setError('Gagal');
+      }
+    } catch (err) {
+      setError(err.msg);
+      setSplash(false);
+      console.log(err);
+    }
+  };
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     getStoredToken;
-  //   }, 3000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      getStoredToken;
+    }, 3000);
+  }, []);
 
   if (splash) {
     return <SplashScreen />;
@@ -66,7 +69,13 @@ const AppRouter = () => {
       <Stack.Navigator
         headerMode={false}
         screenOptions={{animationEnabled: false}}>
-        {}
+        {!token ? (
+          <>
+            <Stack.Screen name="Login" component={LoginScreen}/>
+          </>
+        ) : user.roles ? (
+          
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
