@@ -1,16 +1,18 @@
-import {clearToken} from '../../redux/action';
-import store from '../../redux/store';
-import {apiPrivate, apiPublic} from '../Api/webApi';
-import {removeToken} from '../token/Token';
+import {api} from '../Api/webApi';
 
-export const logout = () => {
-  removeToken();
-  store.dispatch(clearToken());
+export const login = (email, password) => {
+  const body = {
+      email,
+      password,
+  };
+
+  return api('POST', '/login', body)
 };
 
-export const loginServices = (email, password) => {
-  return apiPublic.post('/login', {
-    email,
-    password,
-  });
+export const profile = () => {
+  return api('GET', '/getUser')
+};
+
+export const logOut = () => {
+  return api('GET', '/logout')
 };

@@ -14,12 +14,12 @@ import DailyReportScreen from './Manager/DailyReportScreen';
 import ItemListScreen from './Manager/ItemListScreen';
 import SettingScreen from './User/SettingScreen';
 import UpdateProfile from './User/UpdateProfile';
+import TabUser from './User/TabUser';
 import NoConnections from './NoConnections';
 
 export {
   ForgotScreen,
   LoginScreen,
-
   SplashScreen,
   CashierDashboardScreen,
   CartScreen,
@@ -34,5 +34,6 @@ export {
   ItemListScreen,
   SettingScreen,
   UpdateProfile,
+  TabUser,
   NoConnections,
 };

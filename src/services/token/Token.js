@@ -1,9 +1,9 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const storeToken = async (token) => {
   try {
     await AsyncStorage.setItem('token', token);
-  } catch (e) {
+  } catch (e) { 
     console.log(e);
   }
 };
@@ -11,7 +11,9 @@ const storeToken = async (token) => {
 const getToken = async () => {
   try {
     const value = await AsyncStorage.getItem('token');
-    return value;
+    if (value !== null) {
+      return value;
+    }
   } catch (e) {
     console.log(e);
   }
@@ -20,10 +22,10 @@ const getToken = async () => {
 const removeToken = async () => {
   try {
     await AsyncStorage.removeItem('token');
-    console.log('Done. delete token');
+    console.log('Log out')
   } catch (e) {
     console.log(e);
   }
 };
 
-export {storeToken, getToken, removeToken};
+export {storeToken ,getToken, removeToken};

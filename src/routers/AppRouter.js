@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   ForgotScreen,
   LoginScreen,
@@ -18,64 +19,60 @@ import {
   ItemListScreen,
   SettingScreen,
   UpdateProfile,
+  TabUser,
   NoConnections,
 } from '../screens';
 import {s} from '../styles/MainStyles';
-import {useDispatch, useSelector} from 'react-redux';
-import {getProfileServices} from '../services/endpoint/user';
-import {getToken} from '../services/token/Token';
-import { changeToken } from '../redux/action';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const AppRouter = () => {
-  const [splash, setSplash] = useState(true);
-  const {token, user} = useSelector(state => state);
-  const [error, setError] = useState('');
-  const dispatch = useDispatch();
-
-  const getStoredToken = async () => {
-    try {
-      const storedToken = await getToken();
-      if (storedToken) {
-        dispatch(changeToken(storedToken));
-        getProfileServices(
-          () => setSplash(false),
-          e => setError(e.msg),
-        );
-      } else {
-        setSplash(false);
-        setError('Gagal');
-      }
-    } catch (err) {
-      setError(err.msg);
-      setSplash(false);
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      getStoredToken;
-    }, 3000);
-  }, []);
-
-  if (splash) {
-    return <SplashScreen />;
-  }
-
   return (
     <NavigationContainer>
       <Stack.Navigator
         headerMode={false}
         screenOptions={{animationEnabled: false}}>
-        {!token ? (
+        <>
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        </>
+        <>
           <>
-            <Stack.Screen name="Login" component={LoginScreen}/>
+            <Stack.Screen name="Cashier">
+              <Tab.Navigator 
+                tabBar={props => <TabUser {...props}/>}>
+                <Tab.Screen 
+                  name="CashierDashboardScreen"
+                  component={CashierDashboardScreen}
+                />
+              </Tab.Navigator>
+            </Stack.Screen>
+            <Stack.Screen name="CartScreen" component={CartScreen}/>
+            <Stack.Screen name="HistorySellingScreen" component={HistorySellingScreen}/>
+            <Stack.Screen name="InvoiceScreen" component={InvoiceScreen}/>
+            <Stack.Screen name="MemberListScreen" component={MemberListScreen}/>
+            <Stack.Screen name="TopUpScreen" component={TopUpScreen}/>
           </>
-        ) : user.roles ? (
-          
-        )}
+          <>
+            <Stack.Screen name="Manager">
+              <Tab.Navigator
+                tabBar={props => <TabUser {...props}/>}>
+                <Tab.Screen 
+                  name="ManagerDashboardScreen"
+                  component={ManagerDashboardScreen}
+                />
+              </Tab.Navigator>
+            </Stack.Screen>
+            <Stack.Screen name="AbsentReportScreen" component={AbsentReportScreen}/>
+            <Stack.Screen name="AllicationScreen" component={AllicationScreen}/>
+            <Stack.Screen name="DailyReportScreen" component={DailyReportScreen}/>
+            <Stack.Screen name="ItemListScreen" component={ItemListScreen}/>
+          </>
+          <Stack.Screen name="SettingScreen" component={SettingScreen}/>
+          <Stack.Screen name="UpdateProfile" component={UpdateProfile}/>
+        </>
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
