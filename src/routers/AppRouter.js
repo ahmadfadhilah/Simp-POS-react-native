@@ -23,11 +23,18 @@ import {
   NoConnections,
 } from '../screens';
 import {s} from '../styles/MainStyles';
+import { useSelector } from 'react-redux';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const AppRouter = () => {
+  const [splash, setSplash] = useState(true);
+  // const {token, user} = useSelector((state) => state);
+  const [error, setError] = useState('');
+
+  
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -37,7 +44,7 @@ const AppRouter = () => {
           <Stack.Screen name="SplashScreen" component={SplashScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
         </>
-        <>
+        {/* <>
           <>
             <Stack.Screen name="Cashier">
               <Tab.Navigator 
@@ -71,7 +78,7 @@ const AppRouter = () => {
           </>
           <Stack.Screen name="SettingScreen" component={SettingScreen}/>
           <Stack.Screen name="UpdateProfile" component={UpdateProfile}/>
-        </>
+        </> */}
         
       </Stack.Navigator>
     </NavigationContainer>
